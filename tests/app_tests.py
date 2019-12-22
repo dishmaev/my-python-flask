@@ -17,8 +17,11 @@ class ServerTestCase(unittest.TestCase):
         self.assertEqual(result.status_code, 200) 
 
     def test_health_endpoint(self):
-        result = self.app.get('/health2')
+        result = self.app.get('/health')
         assert b'UP' in result.data
+        
+    def test_numbers_3_4(self):
+        self.assertEqual(3 * 4, 13)
 
 if __name__ == '__main__':
     unittest.main()
